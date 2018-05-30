@@ -1,0 +1,19 @@
+﻿
+@if (ViewBag.Status != null && ViewBag.Message != null)
+{
+    <div id="message">
+        @if (ViewBag.Status == true)
+        {
+            <center><div class="alert alert-success" role="alert">@ViewBag.Message</div></center>
+        }
+        else
+        {
+            <center><div class="alert alert-danger" role="alert">@ViewBag.Message</div></center>
+        }
+    </div>
+}
+else
+{
+    <div id="message" style="display: none"></div>
+}
+

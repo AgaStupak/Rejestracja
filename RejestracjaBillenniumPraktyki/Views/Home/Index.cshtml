@@ -1,0 +1,40 @@
+﻿@model RejestracjaBillenniumPraktyki.Models.Registration
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dodaj aplikację</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <center><h2>Dodaj aplikację</h2></center>
+         @Html.Partial("_IsAdded")
+        @using (Html.BeginForm("AddApplication", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+        {
+            @Html.AntiForgeryToken()
+
+            <center>@Html.LabelFor(n => n.FirstLastName)</center>
+                @Html.TextBoxFor(n => n.FirstLastName, new {@placeholder = "imię i nazwisko", @class = "form-control" })<br/>
+                @Html.ValidationMessageFor(n=>n.FirstLastName)<br/>
+
+
+            <center> @Html.LabelFor(n => n.Reasons)</center>
+                @Html.TextAreaFor(n => n.Reasons, new { @placeholder = "Treść", @style = "min-height: 250px", @class = "form-control" })<br/>
+                @Html.ValidationMessageFor(n=>n.Reasons)<br/>
+
+            
+            <input type="submit" value="Dodaj aplikację" class="btn btn-primary" />
+
+        }
+
+    </div>
+</body>
+</html>
+    
+
